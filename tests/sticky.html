@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <title>sticky div test</title>
+    <style>
+        .sticky{
+            position: sticky;
+            top: 0px;
+            float: right;
+        }
+
+        .filler{
+            height: 1000px;
+            background-color: aqua;
+        }
+    </style>
+    <body>
+        <div class="sticky">
+            <div><p>I am sticky</p></div>
+            <div style="float: left;"><p>I am sticky too</p></div>
+        </div>
+        <div class="filler"></div>
+    </body>
+</html>

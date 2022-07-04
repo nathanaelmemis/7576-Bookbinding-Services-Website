@@ -1,0 +1,396 @@
+body{
+    font-family: arial;
+    margin: 0px;
+    background-color: #FFF8F1;
+}
+
+header{
+    position: sticky;
+    top: 0px;
+}
+
+/* HEADER */
+
+@media screen and (max-width: 1123px){
+    #header-left-hide{
+        display: none;
+        padding: 50px;
+    }
+}
+
+@media screen and (max-width: 885px){
+    #header-right-login{
+        display: none;
+        padding: 50px;
+    }
+}
+
+.header-container{
+    background-color: #F8A756;
+    height: 50px;
+}
+
+.header-left-container{
+    width: 33.33%;;
+    float: left;
+}
+
+.header-left{
+    margin-top: 12px;
+    float: left;
+    padding-left: 30px;
+    padding-right: 10px;
+    font-size: 22px;
+}
+
+.header-left-content:link, .header-left-content:visited{
+    color: black;
+    text-decoration: none;
+}
+
+.header-left-content:hover{
+    color: #FFF8F1;
+}
+
+.header-logo-container{
+    text-align: center;
+    width: 33.33%;
+    float: left;
+}
+
+.header-logo{
+    margin-top: -18px;
+    height: 80px;
+    width: 80px;
+}
+
+.header-right-container{
+    width: 33.33%;
+    float: left;
+}
+
+.header-right{
+    margin-top: 12px;
+    float: right;
+    padding-right: 20px;
+    font-size: 22px;
+}
+
+.header-right-content:link, .header-right-content:visited{
+    color: black;
+    text-decoration: none;
+}
+
+.header-right-content:hover{
+    color: #FFF8F1;
+}
+
+/* FLOATING LINKS */
+
+@media screen and (max-width: 975px){
+    #floating-links{
+        display: none;
+    }
+
+    #main{
+        margin-top: 60px;
+    }
+}
+
+.floating-links-facebook{
+    position: sticky;
+    top: 0px;
+    margin-top: 200px;
+    height: 40px;
+    width: 40px;
+    background-color: blue;
+}
+
+.floating-links-instagram{
+    position: sticky;
+    top: 0px;
+    height: 40px;
+    width: 40px;
+    background-color: pink;
+}
+
+.floating-links-youtube{
+    position: sticky;
+    top: 0px;
+    height: 40px;
+    width: 40px;
+    background-color: red;
+}
+
+.floating-links-twitter{
+    position: sticky;
+    top: 0px;
+    height: 40px;
+    width: 40px;
+    background-color: skyblue;
+}
+
+/* MAIN */
+
+main{
+    margin-top: -300px;
+}
+
+/* Introduction */
+
+@media screen and (max-width: 885px){
+    #main-introduction-container{
+        width: 450px;
+        justify-content: center;
+    }
+
+    #main-introduction-name{
+        font-size: 35px;
+    }
+
+    #main-introduction-line-container{
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    #main-introduction-picture-container{
+        margin-left: 35px;
+    }
+    
+    #main-introduction-text-container{
+        width: 100%;
+    }
+
+    /* PRODUCTS */
+
+    #main-products-inner-container{
+        height: 470px;
+    }
+
+    #main-products-inner-container p{
+        margin-top: 5px;
+    }
+
+    #main-products-container{
+        padding-top: 180px;
+        width: 450px;
+        justify-content: center;
+    }
+
+    #main-products-name{
+        font-size: 35px;
+    }
+
+    #main-products-line-container{
+        margin-right: 0px;
+        margin-left: 0px;
+        position: static;
+    }
+
+    #main-products-picture-container{
+        margin-left: 35px;
+    }
+
+    #main-products-title-container{
+        text-align: center;
+        width: 100%;
+    }
+
+    #main-products-title{
+        font-size: 28px;
+    }
+
+    #main-products-text-container{
+        width: 100%;
+    }
+
+    /* ABOUT US */
+
+    #about-us-container{
+        margin-top: 100px;
+        width: 450px;
+        justify-content: center;
+    }
+
+    #about-us-name{
+        font-size: 35px;
+    }
+
+    #about-us-line-container{
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    #about-us-text-container{
+        width: 100%;
+    }
+
+    #about-us-text{
+        margin-right: 20px;
+        margin-left: 25px;
+    }
+}
+
+.main-introduction-container{
+    width: 900px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 120px;
+}
+
+.main-introduction-name-container{
+    text-align: center;
+}
+
+.main-introduction-name{
+    font-size: 63px;
+    margin: 0px;
+}
+
+.main-introduction-line-container{
+    margin-right: 60px;
+    margin-left: 30px
+}
+
+.main-introduction-line{
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.main-introduction-picture-container{
+    margin-left: 30px;
+    margin-top: 20px;
+    float: left;
+    width: 450;
+}
+
+.main-introduction-picture{
+    width: 380px;
+    height: 214px;
+}
+
+.main-introduction-text-container{
+    float: left;
+    margin-left: 25px;
+    text-align: justify;
+    text-justify: inter-word;
+    width: 50%;
+}
+
+.main-introduction-text{
+    font-size: 22px;
+    margin-right: 45px;
+}
+
+/* OUR PRODUCTS */
+
+.main-products-container{
+    width: 900px;
+    padding-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-products-inner-container{
+    height: 270px;
+}
+
+.main-products-name-container{
+    text-align: center;
+}
+
+.main-products-name{
+    font-size: 63px;
+    margin: 0px;
+}
+
+.main-products-line-container{
+    margin-right: 60px;
+    margin-left: 30px
+}
+
+.main-products-line{
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.main-products-picture-container{
+    margin-left: 30px;
+    margin-top: 20px;
+    float: left;
+    width: 450;
+}
+
+.main-products-picture{
+    width: 380px;
+    height: 214px;
+}
+
+.main-products-title-container{
+    float: left;
+    margin-left: 25px;
+    width: 50%;
+}
+
+.main-products-title{
+    font-size: 30px;
+    margin-right: 45px;
+    margin-top: 22px;
+    margin-bottom: 0px;
+}
+
+.main-products-text-container{
+    float: left;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    text-align: justify;
+    text-justify: inter-word;
+    width: 50%;
+}
+
+.main-products-text{
+    font-size: 22px;
+    margin-right: 45px;
+}
+
+/* ABOUT US */
+
+.about-us-container{
+    width: 900px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 500px;
+}
+
+.about-us-name-container{
+    text-align: center;
+}
+
+.about-us-name{
+    font-size: 63px;
+    margin: 0px;
+}
+
+.about-us-line-container{
+    margin-right: 30px;
+    margin-left: 30px
+}
+
+.about-us-line{
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.about-us-text-container{
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.about-us-text{
+    font-size: 22px;
+}
