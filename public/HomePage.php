@@ -45,6 +45,19 @@
                         document.getElementById("header-right-content").href = "Profile.php";</script>';
                     }
                 ?>
+                <div class="header-right-container-compress" id="header-right-container-compress-false">
+                    <div class="header-right" id="header-right">
+                        <a class="header-right-content" id="header-right-content-compress" href="Profile.php">Login</a>
+                    </div>
+                </div>
+                <?php
+                    if ($user_data != NULL)
+                    {
+                        echo '<script>document.getElementById("header-right-content-compress").innerHTML = "Profile";
+                        document.getElementById("header-right-container-compress-false").id = "header-right-container-compress-true";</script>';
+
+                    }
+                ?>
             </div>
              <!-- FLOATING LINKS -->
             <section class="floating-links" id="floating-links">

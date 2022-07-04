@@ -13,7 +13,7 @@
 <html>
     <head>
         <title>7576 Book Binding Services</title>
-        <link rel="stylesheet" type="text/css" href="../CSS/Login.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/Profile.css">
     </head>
     <body>
         <!-- HEADER -->
@@ -23,6 +23,9 @@
                     <div class="header-left" id="header-left-hide">
                         <a class="header-left-content" href="Homepage.php#main-products-container" style="position: sticky;">Products</a>
                     </div>
+                    <div class="header-left">
+                        <a class="header-left-content" >Inquire</a>
+                    </div>
                     <div class="header-left" id="header-left-hide">
                         <a class="header-left-content" href="Homepage.php#about-us-container">About Us</a>
                     </div>
@@ -31,6 +34,23 @@
                     <a href="Homepage.php"><img class="header-logo" src="../assets/HomePage/Header/CompanyLogo.png" alt="Company Logo"></a>
                 </div>
                 <div class="header-right-container">
+                </div>
+                <div class="header-right-container" id="header-right-container">
+                    <div class="header-right" id="header-right">
+                        <a class="header-right-content" id ="header-right-content" href="HomePage.php"></a>
+                    </div>
+                </div>
+                <?php
+                    if ($user_data != NULL)
+                    {
+                        $first_name = strtok($user_data['CustomerName'], " ");
+                        echo '<script>document.getElementById("header-right-content").innerHTML = "Welcome, '.$first_name.'";</script>';
+                    }
+                ?>
+                <div class="header-right-container-compress" id="header-right-container-compress">
+                    <div class="header-right" id="header-right">
+                        <a class="header-right-content" id="header-right-content-compress" href="HomePage.php">Home</a>
+                    </div>
                 </div>
             </div>
              <!-- FLOATING LINKS -->

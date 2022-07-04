@@ -11,7 +11,7 @@ header{
 
 /* HEADER */
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 1123px){
     #header-left-hide{
         display: none;
     }

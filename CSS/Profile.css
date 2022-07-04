@@ -18,11 +18,11 @@ header{
 }
 
 @media screen and (max-width: 885px){
-    #header-right-login{
+    #header-right-container{
         display: none;
     }
 
-    #header-right-container-compress-true{
+    #header-right-container-compress{
         display: block;
     }
 }
