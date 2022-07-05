@@ -146,14 +146,11 @@ main{
 
 /* Introduction */
 
-@media screen and (max-width: 885px){
+@media screen and (max-width: 1279px){
     #main-introduction-container{
-        width: 450px;
+        width: 800px;
+        height: 750px;
         justify-content: center;
-    }
-
-    #main-introduction-name{
-        font-size: 35px;
     }
 
     #main-introduction-line-container{
@@ -162,11 +159,21 @@ main{
     }
 
     #main-introduction-picture-container{
-        margin-left: 35px;
+        margin-left: 0px;
+    }
+
+    #main-introduction-picture{
+        width: 800px;
+        height: 450px;
     }
     
     #main-introduction-text-container{
         width: 100%;
+        margin-left: 0px;
+    }
+
+    #main-introduction-text-container p{
+        margin-right: 0px;
     }
 
     /* PRODUCTS */
@@ -180,13 +187,14 @@ main{
     }
 
     #main-products-container{
-        padding-top: 180px;
-        width: 450px;
+        width: 800px;
+        height: 2100px;
         justify-content: center;
+        margin-top: 200px;
     }
 
     #main-products-name{
-        font-size: 35px;
+        font-size: 63px;
     }
 
     #main-products-line-container{
@@ -196,7 +204,12 @@ main{
     }
 
     #main-products-picture-container{
-        margin-left: 35px;
+        margin-left: 0px;
+    }
+
+    #main-products-picture{
+        width: 800px;
+        height: 450px;
     }
 
     #main-products-title-container{
@@ -205,23 +218,28 @@ main{
     }
 
     #main-products-title{
-        font-size: 28px;
+        font-size: 30px;
     }
 
     #main-products-text-container{
         width: 100%;
+        margin-left: 0px;
+    }
+
+    #main-products-text-container p{
+        margin-right: 0px;
     }
 
     /* ABOUT US */
 
     #about-us-container{
         margin-top: 100px;
-        width: 450px;
+        width: 800px;
         justify-content: center;
     }
 
     #about-us-name{
-        font-size: 35px;
+        font-size: 63px;
     }
 
     #about-us-line-container{
@@ -232,11 +250,6 @@ main{
     #about-us-text-container{
         width: 100%;
     }
-
-    #about-us-text{
-        margin-right: 20px;
-        margin-left: 25px;
-    }
 }
 
 .main-introduction-container{
@@ -244,7 +257,7 @@ main{
     height: 500px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 120px;
+    padding-top: 80px;
 }
 
 .main-introduction-name-container{
@@ -295,13 +308,10 @@ main{
 
 .main-products-container{
     width: 900px;
+    height: 900px;
     padding-top: 50px;
     margin-left: auto;
     margin-right: auto;
-}
-
-.main-products-inner-container{
-    height: 270px;
 }
 
 .main-products-name-container{
@@ -366,10 +376,11 @@ main{
 
 .about-us-container{
     width: 900px;
-    height: 500px;
+    height: 300px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 500px;
+    padding-top: 200px;
+    margin-bottom: 200px;
 }
 
 .about-us-name-container{

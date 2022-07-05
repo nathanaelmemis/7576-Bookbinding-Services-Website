@@ -5,7 +5,7 @@
 		{
 
 			$id = $_SESSION['Email'];
-			$query = "select * from customer_information where Email = '$id' limit 1";
+			$query = "select * from customer_information join order_details on customer_information.CustomerID=order_details.CustomerID where Email = '$id' limit 1";
 
 			$result = mysqli_query($con,$query);
 			if($result && mysqli_num_rows($result) > 0)

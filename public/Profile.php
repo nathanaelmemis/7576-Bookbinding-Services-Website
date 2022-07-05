@@ -7,6 +7,9 @@
 	$user_data = check_login($con);
 
     if ($user_data == NULL) header("Location: login.php");
+
+    // get user data
+    
 ?>
 
 <!DOCTYPE html>
@@ -63,9 +66,14 @@
         </header>
         <!-- MAIN -->
         <main id="main">
-            <!-- LOGIN -->
-            <section>
-                <p>This is your profile 
+            <!-- ORDERS -->
+            <section class="main-introduction-container">
+                <div class="main-introduction-name-container">
+                    <p class="main-introduction-name" id="main-introduction-name">Your Orders</p>
+                </div>
+                <div class="main-introduction-line-container" id="main-introduction-line-container">
+                    <hr class="main-introduction-line">
+                </div>
             </section>
         </main>
     </body>

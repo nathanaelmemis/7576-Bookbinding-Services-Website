@@ -55,11 +55,10 @@
                     {
                         echo '<script>document.getElementById("header-right-content-compress").innerHTML = "Profile";
                         document.getElementById("header-right-container-compress-false").id = "header-right-container-compress-true";</script>';
-
                     }
                 ?>
             </div>
-             <!-- FLOATING LINKS -->
+            <!-- FLOATING LINKS -->
             <section class="floating-links" id="floating-links">
                 <a><div class="floating-links-facebook"></div></a>
                 <a><div class="floating-links-instagram"></div></a>
@@ -78,7 +77,7 @@
                     <hr class="main-introduction-line">
                 </div>
                 <div class="main-introduction-picture-container" id="main-introduction-picture-container">
-                    <img class="main-introduction-picture" src="../assets/HomePage/Main/Introduction/Picture.png" alt="Introduction Picture">
+                    <img class="main-introduction-picture" id="main-introduction-picture" src="../assets/HomePage/Main/Introduction/Picture.png" alt="Introduction Picture">
                 </div>
                 <div class="main-introduction-text-container" id="main-introduction-text-container">
                     <p class="main-introduction-text">
@@ -103,7 +102,7 @@
                         <hr class="main-products-line">
                     </div>
                     <div class="main-products-picture-container" id="main-products-picture-container">
-                        <img class="main-products-picture" src="../assets/HomePage/Main/Product1/SewnBinding.png" alt="Introduction Picture">
+                        <img class="main-products-picture" id="main-products-picture" src="../assets/HomePage/Main/Product1/SewnBinding.png" alt="Introduction Picture">
                     </div>
                     <div class="main-products-title-container" id="main-products-title-container">
                         <p class="main-products-title" id="main-products-title">Sewn Binding</p>
@@ -123,7 +122,7 @@
                         <hr class="main-products-line">
                     </div>
                     <div class="main-products-picture-container" id="main-products-picture-container">
-                        <img class="main-products-picture" src="../assets/HomePage/Main/Product2/GlueBinding.png" alt="Introduction Picture">
+                        <img class="main-products-picture" id="main-products-picture" src="../assets/HomePage/Main/Product2/GlueBinding.png" alt="Introduction Picture">
                     </div>
                     <div class="main-products-title-container" id="main-products-title-container">
                         <p class="main-products-title" id="main-products-title">Glue Binding</p>
@@ -142,7 +141,7 @@
                         <hr class="main-products-line">
                     </div>
                     <div class="main-products-picture-container" id="main-products-picture-container">
-                        <img class="main-products-picture" src="../assets/HomePage/Main/Product3/StapleBinding.png" alt="Introduction Picture">
+                        <img class="main-products-picture" id="main-products-picture" src="../assets/HomePage/Main/Product3/StapleBinding.png" alt="Introduction Picture">
                     </div>
                     <div class="main-products-title-container" id="main-products-title-container">
                         <p class="main-products-title" id="main-products-title">Staple Binding</p>
