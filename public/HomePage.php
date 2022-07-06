@@ -16,13 +16,13 @@
     <body>
         <!-- HEADER -->
         <header>
-            <div class="header-container">
+            <div class="header-container" id="header-container">
                 <div class="header-left-container">
                     <div class="header-left" id="header-left-hide">
                         <a class="header-left-content" href="#main-products-container">Products</a>
                     </div>
-                    <div class="header-left">
-                        <a class="header-left-content" >Inquire</a>
+                    <div class="header-left" id="header-left">
+                        <a class="header-left-content" id="header-left-content" href="">Inquire</a>
                     </div>
                     <div class="header-left" id="header-left-hide">
                         <a class="header-left-content" href="#about-us-container">About Us</a>
@@ -31,9 +31,14 @@
                 <div class="header-logo-container" id="header-logo-container">
                     <a href="#top"><img class="header-logo" src="../assets/HomePage/Header/CompanyLogo.png" alt="Company Logo"></a>
                 </div>
-                <div class="header-right-container" id="header-right-container">
-                    <div class="header-right" id="header-right">
+                <div class="header-right-container" id="header-right-container-nologin">
+                    <div class="header-right" id="header-right-nologin">
                         <a class="header-right-content" id ="header-right-content" href="Login.php">Login</a>
+                    </div>
+                </div>
+                <div class="header-right-container-compress" id="header-right-container-compress-false">
+                    <div class="header-right" id="header-right">
+                        <a class="header-right-content" id="header-right-content-compress" href="Profile.php">Profile</a>
                     </div>
                 </div>
                 <?php
@@ -41,20 +46,10 @@
                     {
                         $first_name = strtok($user_data['CustomerName'], " ");
                         echo '<script>document.getElementById("header-right-content").innerHTML = "Welcome, '.$first_name.'";
-                        document.getElementById("header-right").id = "header-right-login";
+                        document.getElementById("header-right-nologin").id = "header-right-login";
+                        document.getElementById("header-right-container-nologin").id = "header-right-container-login";
+                        document.getElementById("header-right-container-compress-false").id = "header-right-container-compress-true";
                         document.getElementById("header-right-content").href = "Profile.php";</script>';
-                    }
-                ?>
-                <div class="header-right-container-compress" id="header-right-container-compress-false">
-                    <div class="header-right" id="header-right">
-                        <a class="header-right-content" id="header-right-content-compress" href="Profile.php">Login</a>
-                    </div>
-                </div>
-                <?php
-                    if ($user_data != NULL)
-                    {
-                        echo '<script>document.getElementById("header-right-content-compress").innerHTML = "Profile";
-                        document.getElementById("header-right-container-compress-false").id = "header-right-container-compress-true";</script>';
                     }
                 ?>
             </div>
@@ -74,10 +69,10 @@
                     <p class="main-introduction-name" id="main-introduction-name">7576 Book Binding Services</p>
                 </div>
                 <div class="main-introduction-line-container" id="main-introduction-line-container">
-                    <hr class="main-introduction-line">
-                </div>
+                        <hr class="main-introduction-line">
+                    </div>
                 <div class="main-introduction-picture-container" id="main-introduction-picture-container">
-                    <img class="main-introduction-picture" id="main-introduction-picture" src="../assets/HomePage/Main/Introduction/Picture.png" alt="Introduction Picture">
+                    <img class="main-introduction-picture" id="main-introduction-picture" src="../assets/HomePage/Main/Introduction/Picture.png" alt="Introduction Picture" />
                 </div>
                 <div class="main-introduction-text-container" id="main-introduction-text-container">
                     <p class="main-introduction-text">
@@ -101,11 +96,11 @@
                     <div class="main-products-line-container" id="main-products-line-container">
                         <hr class="main-products-line">
                     </div>
-                    <div class="main-products-picture-container" id="main-products-picture-container">
-                        <img class="main-products-picture" id="main-products-picture" src="../assets/HomePage/Main/Product1/SewnBinding.png" alt="Introduction Picture">
-                    </div>
                     <div class="main-products-title-container" id="main-products-title-container">
                         <p class="main-products-title" id="main-products-title">Sewn Binding</p>
+                    </div>
+                    <div class="main-products-picture-container" id="main-products-picture-container">
+                        <img class="main-products-picture" id="main-products-picture" src="../assets/HomePage/Main/Product1/SewnBinding.png" alt="Introduction Picture">
                     </div>
                     <div class="main-products-text-container" id="main-products-text-container">
                         <p class="main-products-text">
@@ -121,11 +116,11 @@
                     <div class="main-products-line-container" id="main-products-line-container">
                         <hr class="main-products-line">
                     </div>
-                    <div class="main-products-picture-container" id="main-products-picture-container">
-                        <img class="main-products-picture" id="main-products-picture" src="../assets/HomePage/Main/Product2/GlueBinding.png" alt="Introduction Picture">
-                    </div>
                     <div class="main-products-title-container" id="main-products-title-container">
                         <p class="main-products-title" id="main-products-title">Glue Binding</p>
+                    </div>
+                    <div class="main-products-picture-container" id="main-products-picture-container">
+                        <img class="main-products-picture" id="main-products-picture" src="../assets/HomePage/Main/Product2/GlueBinding.png" alt="Introduction Picture">
                     </div>
                     <div class="main-products-text-container" id="main-products-text-container">
                         <p class="main-products-text">
@@ -140,11 +135,11 @@
                     <div class="main-products-line-container" id="main-products-line-container">
                         <hr class="main-products-line">
                     </div>
-                    <div class="main-products-picture-container" id="main-products-picture-container">
-                        <img class="main-products-picture" id="main-products-picture" src="../assets/HomePage/Main/Product3/StapleBinding.png" alt="Introduction Picture">
-                    </div>
                     <div class="main-products-title-container" id="main-products-title-container">
                         <p class="main-products-title" id="main-products-title">Staple Binding</p>
+                    </div>
+                    <div class="main-products-picture-container" id="main-products-picture-container">
+                        <img class="main-products-picture" id="main-products-picture" src="../assets/HomePage/Main/Product3/StapleBinding.png" alt="Introduction Picture">
                     </div>
                     <div class="main-products-text-container" id="main-products-text-container">
                         <p class="main-products-text">
