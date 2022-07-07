@@ -187,7 +187,23 @@ main{
     }
 
     #main-login-form-content-container-Email{
-        margin-left: 60px;
+        margin-left: 105px;
+    }
+
+    #main-login-form-content-container-Password{
+        margin-left: 45px;
+    }
+
+    #main-login-form-content-container-Fname{
+        margin-left: 30px;
+    }
+
+    #main-login-form-content-container-Lname{
+        margin-left: 33px;
+    }
+
+    #main-login-form-content-container-Address{
+        margin-left: 70px;
     }
 
     #main-login-form-content{
@@ -199,7 +215,7 @@ main{
     }
 
     #main-login-button-enter-container{
-        margin-left: 460px; 
+        margin-left: 505px; 
     }
 
     #main-login-button-enter{
@@ -248,14 +264,38 @@ main{
 }
 
 .main-login-form-content-container-Email{
-    margin-left: 40px;
+    margin-left: 70px;
     margin-bottom: 10px;
     text-align: center;
 }
 
 .main-login-form-content-container-Password{
+    margin-left: 30px;
     text-align: center;
     margin-bottom: 10px;
+}
+
+.main-login-form-content-container-Fname{
+    margin-left: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.main-login-form-content-container-Lname{
+    margin-left: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.main-login-form-content-container-Mname{
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.main-login-form-content-container-Address{
+    margin-left: 50px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .main-login-form-content{
@@ -280,7 +320,7 @@ main{
     background-color: #F8A756;
     cursor: pointer;
     display: inline-block;
-    margin-left: 310px;
+    margin-left: 350px;
 }
 
 .main-login-button-enter{

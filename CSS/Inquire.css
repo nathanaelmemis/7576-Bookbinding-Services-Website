@@ -54,6 +54,14 @@ header{
     #header-right-content-compress:hover{
         font-size: 2.5em;
     }
+
+    #header-right-container{
+        display: none;
+    }
+
+    #header-right-container-compress{
+        display: inline-block;
+    }
 }
 
 .header-container{
@@ -120,6 +128,14 @@ header{
     font-size: 1.35em;
 }
 
+.header-right-container-compress{
+    width: 33%;
+    margin-top: 10px;
+    display: none;
+    text-align: right;
+    vertical-align: top;
+}
+
 /* FLOATING LINKS */
 
 @media screen and (max-width: 1279px){
@@ -175,96 +191,138 @@ main{
     margin-top: 140px;
 }
 
-/* LOGIN */
+/* order */
 
 @media screen and (max-width: 1279px){
-    #main-login-container{
+    #main-order-container{
         width: 700px;
     }
 
-    #main-login-error{
+    #main-order-error{
         font-size: 1.5em;
     }
 
-    #main-login-form-content-container-Email{
-        margin-left: 60px;
-    }
-
-    #main-login-form-content{
+    #main-order-form-content{
         font-size: 2em;
     }
 
-    #main-login-form-input{
+    #main-order-form-input{
         font-size: 2em;
     }
 
-    #main-login-button-enter-container{
+    #main-order-button-enter-container{
         margin-left: 460px; 
     }
 
-    #main-login-button-enter{
+    #main-order-button-enter{
         font-size: 2em;
     }
 }
 
-.main-login-container{
+.main-order-container{
     width: 900px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.main-login-name-container{
+.main-order-name-container{
     text-align: center;
 }
 
-.main-login-name{
+.main-order-name{
     font-size: 4em;
     margin: 0px;
 }
 
-.main-login-line-container{
+.main-order-line-container{
     margin-right: 60px;
     margin-left: 60px
 }
 
-.main-login-line{
+.main-order-line{
     border: 2px solid black;
     border-radius: 10px;
 }
 
-.main-login-error-container{
+.main-order-error-container{
     text-align: center;
     display: none;
 }
 
-.main-login-error{
+.main-order-error{
     color: red;
     margin-bottom: -10px;
     margin-left: 80px;
 }
 
-.main-login-form-container{
+.main-order-form-container{
     margin-top: 20px;
 }
 
-.main-login-form-content-container-Email{
-    margin-left: 40px;
+.main-order-form-label{
+    margin: 0px;
+    margin-left: 60px;
     margin-bottom: 10px;
-    text-align: center;
+    font-size: 2em;
 }
 
-.main-login-form-content-container-Password{
+.main-order-form-content-container-Project-Name{
+    text-align: center;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+.main-order-form-content-container-Book-Quantity{
     text-align: center;
     margin-bottom: 10px;
 }
 
-.main-login-form-content{
+.main-order-form-content-container-Binding-Type{
+    text-align: center;
+    margin-bottom: 10px;
+    margin-right: 97px;
+}
+
+.main-order-form-content-container-Cover-Material{
+    text-align: center;
+    margin-bottom: 10px;
+    margin-right: 47px;
+}
+
+.main-order-form-content-container-Fly-Leaf{
+    text-align: center;
+    margin-bottom: 30px;
+    margin-right: 200px;
+}
+
+.main-order-form-content-container-Payment-Delivery{
+    text-align: center;
+    margin-bottom: 10px;
+    margin-right: 125px;
+    margin-top: 30px;
+}
+
+.main-order-form-content-container-Shipping-Date{
+    text-align: center;
+    margin-bottom: 30px;
+    margin-right: 75px;
+}
+
+.main-order-form-input-Shipping-Date{
+    margin: 0px;
+    margin-right: 5px;
+    background-color: #F8A756;
+    border: 0px;
+    font-size: 1.75em;
+}
+
+.main-order-form-content{
     margin: 0px;
     margin-right: 5px;
     font-size: 1.35em;
 }
 
-.main-login-form-input{
+.main-order-form-input{
     margin: 0px;
     margin-right: 5px;
     background-color: #F8A756;
@@ -272,36 +330,49 @@ main{
     font-size: 1.35em;
 }
 
-.main-login-button-container{
+.main-order-button-container{
     text-align: center;
 }
 
-.main-login-button-enter-container{
+.main-order-button-enter-container{
     background-color: #F8A756;
     cursor: pointer;
     display: inline-block;
-    margin-left: 310px;
+    margin-left: 335px;
 }
 
-.main-login-button-enter{
+.main-order-button-enter{
     margin: 0px;
     border: 0px;
     padding: 5px;
     background-color: #F8A756;
     cursor: pointer;
-    font-size: 16px;
     font-size: 1.35em;
 }
 
-.main-login-button-enter:hover{
+.main-order-button-enter:hover{
     color: #FFF8F1;
 }
 
-.main-login-button-container a:link, .main-login-button-container a:visited{
+.main-order-button-container a:link, .main-order-button-container a:visited{
     color: black;
     text-decoration: none;
 }
 
-.main-login-button-container a:hover{
+.main-order-button-container a:hover{
     color: #FFF8F1;
+}
+
+.main-order-add-container{
+    margin-left: 60px;
+    margin-top: -35px;
+    margin-bottom: 100px;
+}
+
+.main-order-add{
+    padding: 5px;
+    background-color: #F8A756;
+    cursor: pointer;
+    border: 0px;
+    font-size: 1.35em;
 }

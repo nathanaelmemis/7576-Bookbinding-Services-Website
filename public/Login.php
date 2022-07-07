@@ -1,3 +1,8 @@
+<?php
+    ob_start();
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,19 +12,19 @@
     <body>
         <!-- HEADER -->
         <header>
-            <div class="header-container">
+            <div class="header-container" id="header-container">
                 <div class="header-left-container">
-                    <div class="header-left" id="header-left-hide">
-                        <a class="header-left-content" href="Homepage.php#main-products-container" style="position: sticky;">Products</a>
-                    </div>
-                    <div class="header-left" id="header-left-hide">
-                        <a class="header-left-content" href="Homepage.php#about-us-container">About Us</a>
+                    <div class="header-left" id="header-left">
+                        <a class="header-left-content" id ="header-left-content" href="Signup.PHP" style="position: sticky;">Sign Up</a>
                     </div>
                 </div>
                 <div class="header-logo-container" id="header-logo-container">
                     <a href="Homepage.php"><img class="header-logo" src="../assets/HomePage/Header/CompanyLogo.png" alt="Company Logo"></a>
                 </div>
-                <div class="header-right-container">
+                <div class="header-right-container" id="header-right-container">
+                    <div class="header-right" id="header-right">
+                        <a class="header-right-content" id ="header-right-content" href="HomePage.php">Home</a>
+                    </div>
                 </div>
             </div>
              <!-- FLOATING LINKS -->
@@ -42,24 +47,21 @@
                 </div>
                 <form method="post">
                     <div class="main-login-error-container" id="main-login-error-container">
-                        <p class="main-login-error">Invalid Input!</P>
+                        <p class="main-login-error" id="main-login-error">Invalid Input!</P>
                     </div>
                     <div class="main-login-form-container">
-                        <div class="main-login-form-content-container">
-                            <label class="main-login-form-content">Email:</label>
-                            <input class="main-login-form-input" type="text" name="email"></input>
+                        <div class="main-login-form-content-container-Email" id="main-login-form-content-container-Email">
+                            <label class="main-login-form-content" id="main-login-form-content">Email:</label>
+                            <input class="main-login-form-input" id="main-login-form-input" type="text" name="email"></input>
                         </div>
-                        <div class="main-login-form-content-container">
-                            <label class="main-login-form-content">Password:</label>
-                            <input class="main-login-form-input" type="password" name="password"></input>
+                        <div class="main-login-form-content-container-Password">
+                            <label class="main-login-form-content" id="main-login-form-content">Password:</label>
+                            <input class="main-login-form-input" id="main-login-form-input" type="password" name="password"></input>
                         </div>
                     </div>
                     <div class="main-login-button-container">
-                        <div class="main-login-button-enter-container">
-                            <input class="main-login-button-enter" type="submit" value="Enter"></input>
-                        </div>
-                        <div class="main-login-button-signup-container">
-                            <a class="main-login-button-signup" href="Signup.php" >Sign Up</a>
+                        <div class="main-login-button-enter-container" id="main-login-button-enter-container">
+                            <input class="main-login-button-enter" id="main-login-button-enter" type="submit" value="Enter"></input>
                         </div>
                     </div>
                 </form>
@@ -69,10 +71,7 @@
 </html>
 
 <?php
-    session_start();
-
     include("../PHP/Connection.php");
-    include("../PHP/Functions.php");
 
     if($_SERVER['REQUEST_METHOD'] === "POST")
     {
@@ -94,7 +93,7 @@
                     
                     if($user_data['Password'] === $password)
                     {
-                        $_SESSION['Email'] = $user_data['Email'];
+                        $_SESSION['customerid'] = $user_data['CustomerID'];
                         header("Location: HomePage.php");
                         die;
                     }

@@ -1,0 +1,213 @@
+<?php
+    ob_start();
+    session_start();
+
+    include("../PHP/Connection.php");
+    include("../PHP/Functions.php");
+
+	$user_data = check_login($con);
+
+    if ($user_data == NULL) header("Location: Login.php");
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>7576 Book Binding Services</title>
+        <link rel="stylesheet" type="text/css" href="../CSS/Inquire.css">
+        <script src="../JS/Inquire.js"></script>
+    </head>
+    <body>
+        <!-- HEADER -->
+        <header>
+            <div class="header-container" id="header-container">
+                <div class="header-left-container">
+                    <div class="header-left" id="header-left">
+                        <a class="header-left-content" id ="header-left-content" href="HomePage.php" style="position: sticky;">Home</a>
+                    </div>
+                </div>
+                <div class="header-logo-container" id="header-logo-container">
+                    <a href="Homepage.php"><img class="header-logo" src="../assets/HomePage/Header/CompanyLogo.png" alt="Company Logo"></a>
+                </div>
+                <div class="header-right-container" id="header-right-container">
+                    <div class="header-right" id="header-right">
+                        <a class="header-right-content" id ="header-right-content" href="Profile.php"></a>
+                    </div>
+                </div>
+                <div class="header-right-container-compress" id="header-right-container-compress">
+                    <div class="header-right" id="header-right">
+                        <a class="header-right-content" id="header-right-content-compress" href="Profile.php">Profile</a>
+                    </div>
+                </div>
+                <?php
+                    if ($user_data != NULL)
+                    {
+                        $last_name = strtok($user_data['CustomerName'], ",");
+                        echo '<script>document.getElementById("header-right-content").innerHTML = "Welcome, '.$last_name.'";</script>';
+                    }
+                ?>
+            </div>
+             <!-- FLOATING LINKS -->
+            <section class="floating-links" id="floating-links">
+                <a><div class="floating-links-facebook"></div></a>
+                <a><div class="floating-links-instagram"></div></a>
+                <a><div class="floating-links-youtube"></div></a>
+                <a><div class="floating-links-twitter"></div></a>
+            </section>
+        </header>
+        <!-- MAIN -->
+        <main id="main">
+            <!-- ORDER -->
+            <section class="main-order-container" id="main-order-container">
+                <div class="main-order-name-container">
+                    <p class="main-order-name">Inquire</p>
+                </div>
+                <div class="main-order-line-container">
+                    <hr class="main-order-line">
+                </div>
+                <form method="post">
+                    <div id="add-project">
+                        <div class="main-order-form-container">
+                            <p class="main-order-form-label">Project 1</p>
+                            <div class="main-order-form-content-container-Project-Name" id="main-order-form-content-container-Project-Name">
+                                <label class="main-order-form-content" id="main-order-form-content">Project Name:</label>
+                                <input class="main-order-form-input" id="main-order-form-input" type="text" name="projectname1"></input>
+                            </div>
+                            <div class="main-order-form-content-container-Book-Quantity" id="main-order-form-content-container-Book-Quantity">
+                                <label class="main-order-form-content" id="main-order-form-content">Book Quantity:</label>
+                                <input class="main-order-form-input" id="main-order-form-input" type="text" name="bookquantity1"></input>
+                            </div>
+                            <div class="main-order-form-content-container-Binding-Type">
+                                <label class="main-order-form-content">Binding Type:</label>
+                                <select class="main-order-form-input" name="bindingtype1">
+                                    <option value="Sewn Binding">Sewn Binding</option>
+                                    <option value="Glue Binding">Glue Binding</option>
+                                    <option value="Staple Binding">Staple Binding</option>
+                                </select>
+                            </div>
+                            <div class="main-order-form-content-container-Cover-Material">
+                                <label class="main-order-form-content">Cover Material:</label>
+                                <select class="main-order-form-input" name="covermaterial1">
+                                    <option value="M00003">Card Board 1530gsm</option>
+                                    <option value="M00004">Card Board 1510gsm</option>
+                                    <option value="M00005">Card Board 1450gsm</option>
+                                </select>
+                            </div>
+                            <div class="main-order-form-content-container-Fly-Leaf" id="main-order-form-content-container-Fly-Leaf">
+                                <label class="main-order-form-content" id="main-order-form-content">Fly Leaf:</label>
+                                <input class="main-order-form-input" id="main-order-form-input" type="checkbox" name="flyleaf1"></input>
+                            </div>
+                            <div class="main-order-line-container">
+                                <hr class="main-order-line">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-order-form-content-container-Payment-Delivery">
+                        <label class="main-order-form-content">Mode of Payment/Delivery:</label>
+                        <select class="main-order-form-input" name="paymentdelivery">
+                            <option value="Bank Transfer - Courier">Bank Transfer - Courier</option>
+                            <option value="COD - Company Delivery">COD - Company Delivery</option>
+                        </select>
+                    </div>
+                    <div class="main-order-form-content-container-Shipping-Date">
+                        <label class="main-order-form-content" for="birthday">Date to Drop:</label>
+                        <input class="main-order-form-input-Shipping-Date" type="date" name="datetodrop"></input>
+                    </div>
+                    <div class="main-order-error-container" id="main-order-error-container">
+                        <p class="main-order-error" id="main-order-error">Invalid Input!</P>
+                    </div>
+                    <div class="main-order-button-container">
+                        <div class="main-order-button-enter-container" id="main-order-button-enter-container">
+                            <input class="main-order-button-enter" id="main-order-button-enter" type="submit" value="Confirm"></input>
+                        </div>
+                    </div>
+                </form>
+                <div class="main-order-add-container">
+                    <button class="main-order-add" onclick="addProject()">Add Project</button>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
+
+<?php
+    if($_SERVER['REQUEST_METHOD'] === "POST")
+    {
+        $project = 1;
+
+        while (1)
+        {
+            $flyleaf = false;
+
+            $projectname = $_POST['projectname'.$project];
+            $bookquantity = $_POST['bookquantity'.$project];
+            $bindingtype = $_POST['bindingtype'.$project];
+            $covermaterial = $_POST['covermaterial'.$project];
+            $flyleaf = $_POST['flyleaf'.$project++];
+
+            if ($projectname === NULL) 
+            {
+                header("Location: Profile.php");
+		        break;
+            }
+            
+            if(!empty($projectname) && !is_numeric($projectname))
+            {
+                $projectcode = projectCode($con);
+
+                $query = "insert into project_details (ProjectCode,ProjectName,BookQuantity) values ('$projectcode','$projectname','$bookquantity')";
+                mysqli_query($con,$query);
+
+                $paymentdelivery = $_POST['paymentdelivery'];
+                $datetodrop = $_POST['datetodrop'];
+                
+                // for cover material
+                // to get unit price
+                $query = "select * from material_information where MaterialID = '$covermaterial'";
+                $result = mysqli_query($con,$query);
+                $material_information = mysqli_fetch_assoc($result);
+
+                $quantity = $bookquantity * 2;
+                $amount = $material_information['UnitPrice'] * $quantity;
+                $materialid = $material_information['MaterialID'];
+                
+                $query = "insert into project_materials_information (ProjectCode,MaterialID,Quantity,Amount) values ('$projectcode','$materialid','$quantity','$amount')";
+                mysqli_query($con,$query);
+
+                // for fly leaf
+                // to get unit price
+                if ($flyleaf == true) 
+                {
+                    $amount = 15 * $quantity;
+                    $query = "insert into project_materials_information (ProjectCode,MaterialID,Quantity,Amount) values ('$projectcode','M00001','$quantity','$amount')";
+                    mysqli_query($con,$query);
+                }
+            }
+            else
+            {
+                echo '<script>document.getElementById("main-login-error-container").style.display = "block";</script>';
+            }
+        }
+        die;
+    }
+
+    function projectCode($con)
+	{
+		$query = "select ProjectCode from project_details";
+
+		$result = mysqli_query($con,$query);
+		$exist = mysqli_num_rows($result) + 1;
+		if ($exist < 10) $number = "0000";
+		else if ($exist < 10) $number = "000";
+		else if ($exist < 10) $number = "00";
+		else if ($exist < 10) $number = "0";
+		else 
+		{
+			$projectcode = "PC".$exist;
+			return $projectcode;
+		}
+
+		$projectcode = "PC".$number.$exist;
+		return $projectcode;
+	}
+?>

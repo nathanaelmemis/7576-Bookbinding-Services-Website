@@ -22,7 +22,7 @@
                         <a class="header-left-content" href="#main-products-container">Products</a>
                     </div>
                     <div class="header-left" id="header-left">
-                        <a class="header-left-content" id="header-left-content" href="">Inquire</a>
+                        <a class="header-left-content" id="header-left-content" href="Inquire.php">Inquire</a>
                     </div>
                     <div class="header-left" id="header-left-hide">
                         <a class="header-left-content" href="#about-us-container">About Us</a>
@@ -44,8 +44,8 @@
                 <?php
                     if ($user_data != NULL)
                     {
-                        $first_name = strtok($user_data['CustomerName'], " ");
-                        echo '<script>document.getElementById("header-right-content").innerHTML = "Welcome, '.$first_name.'";
+                        $last_name = strtok($user_data['CustomerName'], ",");
+                        echo '<script>document.getElementById("header-right-content").innerHTML = "Welcome, '.$last_name.'";
                         document.getElementById("header-right-nologin").id = "header-right-login";
                         document.getElementById("header-right-container-nologin").id = "header-right-container-login";
                         document.getElementById("header-right-container-compress-false").id = "header-right-container-compress-true";
