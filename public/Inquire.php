@@ -111,7 +111,7 @@
                     </div>
                     <div class="main-order-form-content-container-Shipping-Date">
                         <label class="main-order-form-content" for="birthday">Date to Drop:</label>
-                        <input class="main-order-form-input-Shipping-Date" type="date" name="datetodrop"></input>
+                        <input class="main-order-form-input-Shipping-Date" type="date" name="datetodrop" value=<?php echo'"20'.date("y-d-m").'"' ?> min=<?php echo'"20'.date("y-d-m").'"' ?>></input>
                     </div>
                     <div class="main-order-error-container" id="main-order-error-container">
                         <p class="main-order-error" id="main-order-error">Invalid Input!</P>
@@ -134,16 +134,17 @@
     if($_SERVER['REQUEST_METHOD'] === "POST")
     {
         $project = 1;
+        $allprojectcodes = array();
 
         while (1)
         {
             $flyleaf = false;
 
             $projectname = $_POST['projectname'.$project];
-            $bookquantity = $_POST['bookquantity'.$project];
+            $bookquantity = (int)$_POST['bookquantity'.$project];
             $bindingtype = $_POST['bindingtype'.$project];
             $covermaterial = $_POST['covermaterial'.$project];
-            $flyleaf = $_POST['flyleaf'.$project++];
+            if (isset($_POST['flyleaf'.$project])) $flyleaf = true;
 
             if ($projectname === NULL) 
             {
@@ -154,13 +155,13 @@
             if(!empty($projectname) && !is_numeric($projectname))
             {
                 $projectcode = projectCode($con);
+                array_push($allprojectcodes, $projectcode);
 
+                // project_details
                 $query = "insert into project_details (ProjectCode,ProjectName,BookQuantity) values ('$projectcode','$projectname','$bookquantity')";
                 mysqli_query($con,$query);
-
-                $paymentdelivery = $_POST['paymentdelivery'];
-                $datetodrop = $_POST['datetodrop'];
                 
+                // project_materials_information
                 // for cover material
                 // to get unit price
                 $query = "select * from material_information where MaterialID = '$covermaterial'";
@@ -174,20 +175,53 @@
                 $query = "insert into project_materials_information (ProjectCode,MaterialID,Quantity,Amount) values ('$projectcode','$materialid','$quantity','$amount')";
                 mysqli_query($con,$query);
 
+                // project_materials_information
                 // for fly leaf
-                // to get unit price
-                if ($flyleaf == true) 
+                if ($flyleaf === true) 
                 {
                     $amount = 15 * $quantity;
                     $query = "insert into project_materials_information (ProjectCode,MaterialID,Quantity,Amount) values ('$projectcode','M00001','$quantity','$amount')";
                     mysqli_query($con,$query);
                 }
+
+                $project++;
             }
             else
             {
                 echo '<script>document.getElementById("main-login-error-container").style.display = "block";</script>';
             }
         }
+
+        // order_details
+        $orderdate = "20".date("y-m-d");    
+        $paymentdelivery = $_POST['paymentdelivery'];
+        $shippingdate = date('Y-m-d', strtotime("20".$_POST['datetodrop']) + 604800);
+        $orderid = orderID($con);
+
+        $query = "insert into order_details (OrderID,OrderDate,ShippingDate,ModeOfPaymentDelivery) values ('$orderid','$orderdate','$shippingdate','$paymentdelivery')";
+        mysqli_query($con,$query);
+
+        $totalamount = 0;
+        $servicecharge = 0;
+
+        // data_information
+        // get total value of all materials
+        for ($i = 0; $i < $project; $i++)
+        {
+            $query = "select sum(Amount), sum(Quantity) from project_materials_information where ProjectCode='$allprojectscode[$i]'";
+            $result = mysqli_query($con,$query);
+            $project_materials_information = mysqli_fetch_assoc($result);
+            $totalamount += $project_materials_information['sum(Amount)'];
+            $servicecharge += $project_materials_information['sum(Amount)']/2;
+        }
+        $customerid = $user_data['CustomerID'];
+        $servicecharge *= 20;
+
+        $query = "insert into data_information (CustomerID,OrderID,ProjectCode,ServiceCharge,TotalAmount) values ('$customerid','$orderid','$projectcode','$servicecharge','$totalamount')";
+        mysqli_query($con,$query);
+
+        sleep (5);
+
         die;
     }
 
@@ -198,9 +232,9 @@
 		$result = mysqli_query($con,$query);
 		$exist = mysqli_num_rows($result) + 1;
 		if ($exist < 10) $number = "0000";
-		else if ($exist < 10) $number = "000";
-		else if ($exist < 10) $number = "00";
-		else if ($exist < 10) $number = "0";
+		else if ($exist < 100) $number = "000";
+		else if ($exist < 1000) $number = "00";
+		else if ($exist < 10000) $number = "0";
 		else 
 		{
 			$projectcode = "PC".$exist;
@@ -209,5 +243,25 @@
 
 		$projectcode = "PC".$number.$exist;
 		return $projectcode;
+	}
+
+    function orderID($con)
+	{
+		$query = "select OrderID from order_details";
+
+		$result = mysqli_query($con,$query);
+		$exist = mysqli_num_rows($result) + 1;
+		if ($exist < 10) $number = "0000";
+		else if ($exist < 100) $number = "000";
+		else if ($exist < 1000) $number = "00";
+		else if ($exist < 10000) $number = "0";
+		else 
+		{
+			$orderid = "O".$exist;
+			return $orderid;
+		}
+
+		$orderid = "O".$number.$exist;
+		return $orderid;
 	}
 ?>

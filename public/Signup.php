@@ -142,9 +142,9 @@
 		$result = mysqli_query($con,$query);
 		$exist = mysqli_num_rows($result) + 1;
 		if ($exist < 10) $number = "0000";
-		else if ($exist < 10) $number = "000";
-		else if ($exist < 10) $number = "00";
-		else if ($exist < 10) $number = "0";
+		else if ($exist < 100) $number = "000";
+		else if ($exist < 1000) $number = "00";
+		else if ($exist < 10000) $number = "0";
 		else 
 		{
 			$customer_id = "C".$exist;

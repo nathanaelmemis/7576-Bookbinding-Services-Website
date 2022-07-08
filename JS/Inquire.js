@@ -20,17 +20,17 @@ function addProject()
         '<div class="main-order-form-content-container-Binding-Type">'+
             '<label class="main-order-form-content">Binding Type:</label>'+
             '<select class="main-order-form-input" name="bindingtype'+project+'">'+
-                '<option value="M00001">Sewn Binding</option>'+
-                '<option value="M00002">Glue Binding</option>'+
-                '<option value="M00003">Staple Binding</option>'+
+                '<option value="Sewn Binding">Sewn Binding</option>'+
+                '<option value="Glue Binding">Glue Binding</option>'+
+                '<option value="Staple Binding">Staple Binding</option>'+
             '</select>'+
         '</div>'+
         '<div class="main-order-form-content-container-Cover-Material">'+
             '<label class="main-order-form-content">Cover Material:</label>'+
             '<select class="main-order-form-input" name="covermaterial'+project+'">'+
-                '<option value="M00001">Card Board 1530gsm</option>'+
-                '<option value="M00002">Card Board 1510gsm</option>'+
-                '<option value="M00003">Card Board 1450gsm</option>'+
+                '<option value="M00003">Card Board 1530gsm</option>'+
+                '<option value="M00004">Card Board 1510gsm</option>'+
+                '<option value="M00005">Card Board 1450gsm</option>'+
             '</select>'+
         '</div>'+
         '<div class="main-order-form-content-container-Fly-Leaf" id="main-order-form-content-container-Fly-Leaf">'+
