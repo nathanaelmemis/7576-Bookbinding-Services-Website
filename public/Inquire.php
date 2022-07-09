@@ -133,9 +133,15 @@
 <?php
     if($_SERVER['REQUEST_METHOD'] === "POST")
     {
+        // algorithm runs per Order, 1 OrderID, 1 CustomerID, n ProjectCode that depends on number of projects in an Order.
         $project = 1;
-        $allprojectcodes = array();
+        $totalamount = 0;
+        $servicecharge = 0;
 
+        $orderid = orderID($con);
+        $customerid = $user_data['CustomerID'];
+
+        // iteration is set per Order
         while (1)
         {
             $flyleaf = false;
@@ -155,13 +161,19 @@
             if(!empty($projectname) && !is_numeric($projectname))
             {
                 $projectcode = projectCode($con);
-                array_push($allprojectcodes, $projectcode);
+
+                // data_information insert (CustomerID, OrderID, ProjectCode)
+                $query = "insert into data_information (CustomerID,OrderID,ProjectCode) values ('$customerid','$orderid','$projectcode')";
+                mysqli_query($con,$query);
 
                 // project_details
                 $query = "insert into project_details (ProjectCode,ProjectName,BookQuantity) values ('$projectcode','$projectname','$bookquantity')";
                 mysqli_query($con,$query);
+
+                // service charge is per book, pricing depends on company policy
+                $servicecharge += $bookquantity * 20;
                 
-                // project_materials_information
+                // project_materials_information 
                 // for cover material
                 // to get unit price
                 $query = "select * from material_information where MaterialID = '$covermaterial'";
@@ -171,6 +183,7 @@
                 $quantity = $bookquantity * 2;
                 $amount = $material_information['UnitPrice'] * $quantity;
                 $materialid = $material_information['MaterialID'];
+                $totalamount += $amount;
                 
                 $query = "insert into project_materials_information (ProjectCode,MaterialID,Quantity,Amount) values ('$projectcode','$materialid','$quantity','$amount')";
                 mysqli_query($con,$query);
@@ -193,35 +206,22 @@
         }
 
         // order_details
-        $orderdate = "20".date("y-m-d");    
+        $orderdate = date("20y-m-d");
         $paymentdelivery = $_POST['paymentdelivery'];
-        $shippingdate = date('Y-m-d', strtotime("20".$_POST['datetodrop']) + 604800);
-        $orderid = orderID($con);
+        $shippingdate = date("20y-m-d", strtotime($_POST['datetodrop']) + 604800);
 
         $query = "insert into order_details (OrderID,OrderDate,ShippingDate,ModeOfPaymentDelivery) values ('$orderid','$orderdate','$shippingdate','$paymentdelivery')";
         mysqli_query($con,$query);
 
-        $totalamount = 0;
-        $servicecharge = 0;
+        // data_information update (ServiceCharge, TotalAmount)
+        $totalamount += $servicecharge;
 
-        // data_information
-        // get total value of all materials
-        for ($i = 0; $i < $project; $i++)
-        {
-            $query = "select sum(Amount), sum(Quantity) from project_materials_information where ProjectCode='$allprojectscode[$i]'";
-            $result = mysqli_query($con,$query);
-            $project_materials_information = mysqli_fetch_assoc($result);
-            $totalamount += $project_materials_information['sum(Amount)'];
-            $servicecharge += $project_materials_information['sum(Amount)']/2;
-        }
-        $customerid = $user_data['CustomerID'];
-        $servicecharge *= 20;
-
-        $query = "insert into data_information (CustomerID,OrderID,ProjectCode,ServiceCharge,TotalAmount) values ('$customerid','$orderid','$projectcode','$servicecharge','$totalamount')";
-        mysqli_query($con,$query);
+        $query = "UPDATE data_information 
+                    SET ServiceCharge=$servicecharge, TotalAmount=$totalamount 
+                    WHERE OrderID='$orderid'";
+        $result = mysqli_query($con,$query);
 
         sleep (5);
-
         die;
     }
 
