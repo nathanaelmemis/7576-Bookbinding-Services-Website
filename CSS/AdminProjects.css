@@ -125,12 +125,12 @@ header{
     }
 
     #main{
-        margin-top: 150px;
+        margin-top: 140px;
     }
 }
 
 .floating-links{
-    position: static;
+    width: 40px;
 }
 
 .floating-links-facebook{
@@ -144,6 +144,7 @@ header{
 
 .floating-links-instagram{
     position: sticky;
+    margin-top: -4px;
     top: 0px;
     height: 40px;
     width: 40px;
@@ -152,6 +153,7 @@ header{
 
 .floating-links-youtube{
     position: sticky;
+    margin-top: -4px;
     top: 0px;
     height: 40px;
     width: 40px;
@@ -160,6 +162,7 @@ header{
 
 .floating-links-twitter{
     position: sticky;
+    margin-top: -4px;
     top: 0px;
     height: 40px;
     width: 40px;
@@ -223,12 +226,20 @@ main{
     margin-left: 30px;
     margin-top: 0px;
     margin-bottom: 0px;
+    display: inline-block;
 }
 
 .main-order-details-container-OrderID p{
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     font-size: 2em;
+}
+
+.main-order-img{
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    margin-left: 10px;
 }
 
 .main-order-details-container-Order-Details{
@@ -456,7 +467,20 @@ main{
     background-color: #f85656;
     cursor: pointer;
     border: 0px;
-    display: inline-block;
     margin-left: 370px;
+    font-size: 1.35em;
+}
+
+.main-order-button-cancel-alone{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.main-order-button-cancel-alone input{
+    background-color: #f85656;
+    cursor: pointer;
+    border: 0px;
+    margin-left: 700px;
     font-size: 1.35em;
 }

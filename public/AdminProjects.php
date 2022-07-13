@@ -87,11 +87,11 @@
                 </div>
             </div>
              <!-- FLOATING LINKS -->
-            <section class="floating-links" id="floating-links">
-                <a><div class="floating-links-facebook"></div></a>
-                <a><div class="floating-links-instagram"></div></a>
-                <a><div class="floating-links-youtube"></div></a>
-                <a><div class="floating-links-twitter"></div></a>
+             <section class="floating-links" id="floating-links">
+                <a href="https://www.facebook.com/"><img src="../assets/HomePage/Header/FloatingLinks/Facebook.png" class="floating-links-facebook"></a>
+                <a href="https://www.instagram.com/"><img src="../assets/HomePage/Header/FloatingLinks/Instagram.png"  class="floating-links-instagram"></div></a>
+                <a href="https://www.youtube.com/"><img src="../assets/HomePage/Header/FloatingLinks/Youtube.png"  class="floating-links-youtube"></div></a>
+                <a href="https://twitter.com/"><img src="../assets/HomePage/Header/FloatingLinks/Twitter.png"  class="floating-links-twitter"></div></a>
             </section>
         </header>
         <!-- MAIN -->
@@ -110,12 +110,30 @@
                     <div class="main-order-details-container-OrderID">
                         <p>Order ID: <?php echo $orderid ?></P>
                     </div>
+                    <?php
+                        switch ($status)
+                        {
+                            case 1:
+                                echo '<img class="main-order-img" src="../assets/Profile/Main/new.png">';
+                                break;
+                            case 2:
+                                echo '<img class="main-order-img" src="../assets/Profile/Main/processing.png">';
+                                break;
+                            case 3:
+                                echo '<img class="main-order-img" src="../assets/Profile/Main/completed.png">';
+                                break;
+                            case 4:
+                                echo '<img class="main-order-img" src="../assets/Profile/Main/cancelled.png">';
+                                break;
+                        }
+                    ?>
                     <div class="main-order-details-container-Order-Details-Order-Date">
                         <p>Order Date: <?php echo date("m-d-20y", strtotime($order_details['OrderDate']))?></p>
                     </div>
                     <div class="main-order-details-container-Order-Details">
                         <?php
-                            if ($status == 1) echo '<p id>Date to Drop: '.date("m-d-20y", strtotime($order_details['ShippingDate'])).'</p>';
+                            if ($status == 1) echo '<p>Date to Drop: '.date("m-d-20y", strtotime($order_details['ShippingDate'])).'</p>';
+                            else if ($status == 4) echo '<p>Shipping Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</p></div>';
                             else echo '<p id>Shipping Date: '.date("m-d-20y", strtotime($order_details['ShippingDate'])).'</p>';
                         ?>
                     </div>
@@ -200,8 +218,7 @@
                         if ($i+1 < mysqli_num_rows($project_details)) 
                             echo '
                             <div class="main-projects-line-container" id="main-projects-line-container">
-                                <hr class="main-projects-line">
-                            </div>';
+                                <hr class="main-projects-line">';
                         else echo '<div style="margin-bottom: 40px;">';
                     }
                     if ($status == 1)
@@ -209,23 +226,31 @@
                         echo '
                         <div class="main-order-line-container" id="main-order-line-container">
                             <hr class="main-order-line">
+                        </div>
+                        <form method="post">
+                            <div class="main-order-date-container" id="main-order-date-container">
+                                <label class="main-order-date-content" id="main-order-date-content">Date to Ship:</label>
+                                <input class="main-order-date" id="main-order-form-input-date" type="date" name="shippingdate" value="20'.date("y-m-d", strtotime($shippingdate) + 604800).'" min="20'.date("y-m-d", strtotime($shippingdate) + 604800).'"></input>
                             </div>
-                            <form method="post">
-                                <div class="main-order-date-container" id="main-order-date-container">
-                                    <label class="main-order-date-content" id="main-order-date-content">Date to Ship:</label>
-                                    <input class="main-order-date" id="main-order-form-input-date" type="date" name="shippingdate" value="20'.date("y-m-d", strtotime($shippingdate) + 604800).'" min="20'.date("y-m-d", strtotime($shippingdate) + 604800).'"></input>
-                                </div>
-                                <div class="main-order-button-confirm">
-                                    <input type="submit" value="Confirm Order"></input>
-                                </div>
-                            </form>
-                        </div>';
-                    }
-                    if ($status != 3)
-                    {
-                        echo '
+                            <div class="main-order-button-confirm">
+                                <input type="submit" value="Confirm Order"></input>
+                            </div>
+                        </form>
+                        </div>
                         <form method="post">
                             <div class="main-order-button-cancel">
+                                <input type="submit" value="Cancel Order""></input>
+                            </div>
+                        </form>';
+                    }
+                    else if ($status != 3 && $status != 4)
+                    {
+                        echo '
+                        <div class="main-introduction-line-container" id="main-introduction-line-container">
+                            <hr class="main-introduction-line">
+                        </div>
+                        <form method="post">
+                            <div class="main-order-button-cancel-alone">
                                 <input type="submit" value="Cancel Order""></input>
                             </div>
                         </form>';
@@ -241,14 +266,24 @@
 <?php
     if($_SERVER['REQUEST_METHOD'] === "POST")
     {
-        $shippingdate = date("20y-m-d", strtotime($_POST['shippingdate']));
+        if (isset($_POST['shippingdate'])) 
+        {
+            $shippingdate = date("20y-m-d", strtotime($_POST['shippingdate']));
 
-        $query = "UPDATE order_details 
-                    SET ShippingDate='$shippingdate', Status=2
-                    WHERE OrderID='$orderid'";
-        mysqli_query($con,$query);
-
-        //header("Location: Profile.php");
-        //die;
+            $query = "UPDATE order_details 
+                        SET ShippingDate='$shippingdate', Status=2
+                        WHERE OrderID='$orderid'";
+            mysqli_query($con,$query);
+        }
+        else
+        {
+            $query = "UPDATE order_details 
+                        SET ShippingDate='$shippingdate', Status=4
+                        WHERE OrderID='$orderid'";
+            mysqli_query($con,$query);
+        }
+        
+        header("Location: Profile.php");
+        die;
     }
 ?>

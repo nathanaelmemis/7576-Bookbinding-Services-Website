@@ -62,10 +62,10 @@
             </div>
             <!-- FLOATING LINKS -->
             <section class="floating-links" id="floating-links">
-                <a><div class="floating-links-facebook"></div></a>
-                <a><div class="floating-links-instagram"></div></a>
-                <a><div class="floating-links-youtube"></div></a>
-                <a><div class="floating-links-twitter"></div></a>
+                <a href="https://www.facebook.com/"><img src="../assets/HomePage/Header/FloatingLinks/Facebook.png" class="floating-links-facebook"></a>
+                <a href="https://www.instagram.com/"><img src="../assets/HomePage/Header/FloatingLinks/Instagram.png"  class="floating-links-instagram"></div></a>
+                <a href="https://www.youtube.com/"><img src="../assets/HomePage/Header/FloatingLinks/Youtube.png"  class="floating-links-youtube"></div></a>
+                <a href="https://twitter.com/"><img src="../assets/HomePage/Header/FloatingLinks/Twitter.png"  class="floating-links-twitter"></div></a>
             </section>
         </header>
         <!-- MAIN -->

@@ -77,7 +77,7 @@
             <div class="header-container" id="header-container">
                 <div class="header-left-container">
                     <div class="header-left" id="header-left">
-                        <a class="header-left-content" id="header-left-content" href="Profile.php">All Orders</a>
+                        <a class="header-left-content" id="header-left-content" href="Profile.php">Your Orders</a>
                     </div>
                 </div>
                 <div class="header-logo-container" id="header-logo-container">
@@ -90,11 +90,11 @@
                 </div>
             </div>
              <!-- FLOATING LINKS -->
-            <section class="floating-links" id="floating-links">
-                <a><div class="floating-links-facebook"></div></a>
-                <a><div class="floating-links-instagram"></div></a>
-                <a><div class="floating-links-youtube"></div></a>
-                <a><div class="floating-links-twitter"></div></a>
+             <section class="floating-links" id="floating-links">
+                <a href="https://www.facebook.com/"><img src="../assets/HomePage/Header/FloatingLinks/Facebook.png" class="floating-links-facebook"></a>
+                <a href="https://www.instagram.com/"><img src="../assets/HomePage/Header/FloatingLinks/Instagram.png"  class="floating-links-instagram"></div></a>
+                <a href="https://www.youtube.com/"><img src="../assets/HomePage/Header/FloatingLinks/Youtube.png"  class="floating-links-youtube"></div></a>
+                <a href="https://twitter.com/"><img src="../assets/HomePage/Header/FloatingLinks/Twitter.png"  class="floating-links-twitter"></div></a>
             </section>
         </header>
         <!-- MAIN -->
@@ -113,12 +113,29 @@
                     <div class="main-order-details-container-OrderID">
                         <p>Order ID: <?php echo $orderid ?></P>
                     </div>
+                    <?php
+                        switch ($status)
+                        {
+                            case 1:
+                                echo '<img class="main-order-img" src="../assets/Profile/Main/new.png">';
+                                break;
+                            case 2:
+                                echo '<img class="main-order-img" src="../assets/Profile/Main/processing.png">';
+                                break;
+                            case 3:
+                                echo '<img class="main-order-img" src="../assets/Profile/Main/completed.png">';
+                                break;
+                            case 4:
+                                echo '<img class="main-order-img" src="../assets/Profile/Main/cancelled.png">';
+                                break;
+                        }
+                    ?>
                     <div class="main-order-details-container-Order-Details-Order-Date">
                         <p>Order Date: <?php echo date("m-d-20y", strtotime($order_details['OrderDate']))?></p>
                     </div>
                     <div class="main-order-details-container-Order-Details">
                         <?php
-                            if ($status == 1) echo '<p>Shipping Date:&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;-</p></div>';
+                            if ($status == 1 || $status == 4) echo '<p>Shipping Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</p></div>';
                             else echo '<p>Shipping Date: '.date("m-d-20y", strtotime($shippingdate)).'</p></div>';
                         ?>
                     </div>

@@ -98,11 +98,11 @@
                 </div>
             </div>
              <!-- FLOATING LINKS -->
-            <section class="floating-links" id="floating-links">
-                <a><div class="floating-links-facebook"></div></a>
-                <a><div class="floating-links-instagram"></div></a>
-                <a><div class="floating-links-youtube"></div></a>
-                <a><div class="floating-links-twitter"></div></a>
+             <section class="floating-links" id="floating-links">
+                <a href="https://www.facebook.com/"><img src="../assets/HomePage/Header/FloatingLinks/Facebook.png" class="floating-links-facebook"></a>
+                <a href="https://www.instagram.com/"><img src="../assets/HomePage/Header/FloatingLinks/Instagram.png"  class="floating-links-instagram"></div></a>
+                <a href="https://www.youtube.com/"><img src="../assets/HomePage/Header/FloatingLinks/Youtube.png"  class="floating-links-youtube"></div></a>
+                <a href="https://twitter.com/"><img src="../assets/HomePage/Header/FloatingLinks/Twitter.png"  class="floating-links-twitter"></div></a>
             </section>
         </header>
         <!-- MAIN -->
@@ -164,7 +164,7 @@
                             echo '<div class="main-order-column-name-Order-Date">';
                             echo '<p class="main-order-column-name" id="main-order-column-name">'.date("m-d-20y", strtotime($orderdate[$i])).'</p></div>';
                             echo '<div class="main-order-column-name-Shipping-Date">';
-                            if ($status == 1) echo '<p class="main-order-column-name" id="main-order-column-name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</p></div>';
+                            if ($status == 1 || $status == 4) echo '<p class="main-order-column-name" id="main-order-column-name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</p></div>';
                             else echo '<p class="main-order-column-name" id="main-order-column-name">'.date("m-d-20y", strtotime($shippingdate[$i])).'</p></div>';
                             echo '<div class="main-order-column-name-MOPD">';
                             echo '<p class="main-order-column-name" id="main-order-column-name">'.$MOPD[$i].'</p></div>';

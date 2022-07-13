@@ -7,6 +7,7 @@ body{
 header{
     position: sticky;
     top: 0px;
+    height: 0px;
 }
 
 /* HEADER */
@@ -128,12 +129,12 @@ header{
     }
 
     #main{
-        margin-top: 180px;
+        margin-top: 240px;
     }
 }
 
 .floating-links{
-    position: fixed;
+    width: 40px;
 }
 
 .floating-links-facebook{
@@ -147,6 +148,7 @@ header{
 
 .floating-links-instagram{
     position: sticky;
+    margin-top: -4px;
     top: 0px;
     height: 40px;
     width: 40px;
@@ -155,6 +157,7 @@ header{
 
 .floating-links-youtube{
     position: sticky;
+    margin-top: -4px;
     top: 0px;
     height: 40px;
     width: 40px;
@@ -163,6 +166,7 @@ header{
 
 .floating-links-twitter{
     position: sticky;
+    margin-top: -4px;
     top: 0px;
     height: 40px;
     width: 40px;
@@ -172,7 +176,7 @@ header{
 /* MAIN */
 
 main{
-    margin-top: 140px;
+    margin-top: 190px;
 }
 
 /* LOGIN */
