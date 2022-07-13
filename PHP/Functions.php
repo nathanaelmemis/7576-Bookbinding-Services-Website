@@ -3,7 +3,6 @@
 	{
 		if(isset($_SESSION['customerid']))
 		{
-
 			$id = $_SESSION['customerid'];
 			$query = "select * from customer_information where CustomerID = '$id' limit 1";
 

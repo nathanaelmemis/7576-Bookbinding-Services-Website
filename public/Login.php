@@ -1,6 +1,13 @@
 <?php
     ob_start();
     session_start();
+
+    include("../PHP/Connection.php");
+    include("../PHP/Functions.php");
+
+    $user_data = check_login($con);
+
+    if ($user_data !== NULL) header("Location: HomePage.php");
 ?>
 
 <!DOCTYPE html>
@@ -94,6 +101,8 @@
                     if($user_data['Password'] === $password)
                     {
                         $_SESSION['customerid'] = $user_data['CustomerID'];
+                        if ($user_data['CustomerID'][0] === 'A') $_SESSION['admin'] = 1;
+                        else $_SESSION['admin'] = 0;
                         header("Location: HomePage.php");
                         die;
                     }

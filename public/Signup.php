@@ -1,6 +1,13 @@
 <?php
     ob_start();
     session_start();
+
+    include("../PHP/Connection.php");
+    include("../PHP/Functions.php");
+
+    $user_data = check_login($con);
+
+    if ($user_data !== NULL) header("Location: HomePage.php");
 ?>
 
 <!DOCTYPE html>

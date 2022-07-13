@@ -7,6 +7,7 @@ body{
 header{
     position: sticky;
     top: 0px;
+    height: 0px;
 }
 
 /* HEADER */
@@ -144,7 +145,7 @@ header{
     }
 
     #main{
-        margin-top: 180px;
+        margin-top: 150px;
     }
 }
 
@@ -188,18 +189,43 @@ header{
 /* MAIN */
 
 main{
-    margin-top: 40px;
+    margin-top: 90px;
 }
 
 /* order */
 
 @media screen and (max-width: 1279px){
-    #main-order-container{
-        width: 700px;
+
+    #main-order-form-label{
+        text-align: center;
+        font-size: 3em;
+        margin-bottom: 20px;
+        margin-left: 0px;
     }
 
     #main-order-error{
         font-size: 1.5em;
+    }
+
+    #main-order-form-content-container-Binding-Type{
+        margin-right: 145px;
+    }
+
+    #main-order-form-content-container-Cover-Material{
+        margin-right: 70px;
+    }
+
+    #main-order-form-content-container-Fly-Leaf{
+        margin-right: 285px;
+    }
+
+    #main-order-form-content-container-Payment-Delivery{
+        margin-right: 0px;
+    }
+
+    #main-order-form-content-container-Shipping-Date{
+        margin-right: 0px;
+        margin-left: 70px;
     }
 
     #main-order-form-content{
@@ -210,11 +236,28 @@ main{
         font-size: 2em;
     }
 
+    #main-order-form-input-Fly-Leaf{
+        width: 25px;
+        height: 25px;
+    }
+
+    #main-order-form-input-Shipping-Date{
+        font-size: 2.5em;
+    }
+
     #main-order-button-enter-container{
-        margin-left: 460px; 
+        margin-left: 650px; 
     }
 
     #main-order-button-enter{
+        font-size: 2em;
+    }
+
+    #main-order-add-container{
+        margin-top: -47px;
+    }
+
+    #main-order-add{
         font-size: 2em;
     }
 }
@@ -262,7 +305,6 @@ main{
 .main-order-form-label{
     margin: 0px;
     margin-left: 60px;
-    margin-bottom: 10px;
     font-size: 2em;
 }
 
@@ -293,6 +335,18 @@ main{
     text-align: center;
     margin-bottom: 30px;
     margin-right: 200px;
+}
+
+.main-order-error-container{
+    text-align: center;
+    display: none;
+    margin-bottom: 20px;
+}
+
+.main-order-error{
+    color: red;
+    margin-top: 0px;
+    margin-left: 80px;
 }
 
 .main-order-form-content-container-Payment-Delivery{
@@ -328,6 +382,11 @@ main{
     background-color: #F8A756;
     border: 0px;
     font-size: 1.35em;
+}
+
+.main-order-form-input-Fly-Leaf{
+    width: 17px;
+    height: 17px;
 }
 
 .main-order-button-container{

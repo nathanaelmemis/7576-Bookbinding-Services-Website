@@ -5,6 +5,8 @@
     include("../PHP/Functions.php");
 
 	$user_data = check_login($con);
+    if (isset($_SESSION['admin'])) $admin = $_SESSION['admin'];
+    else $admin = 0;
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +26,9 @@
                     <div class="header-left" id="header-left">
                         <a class="header-left-content" id="header-left-content" href="Inquire.php">Inquire</a>
                     </div>
+                    <?php
+                        if ($admin === 1) echo '<script>document.getElementById("header-left").style.display = "none"</script>';
+                    ?>
                     <div class="header-left" id="header-left-hide">
                         <a class="header-left-content" href="#about-us-container">About Us</a>
                     </div>
@@ -44,8 +49,10 @@
                 <?php
                     if ($user_data != NULL)
                     {
+                        if ($admin === 1) $line = "Welcome, Admin ";
+                        else $line = "Welcome, ";
                         $last_name = strtok($user_data['CustomerName'], ",");
-                        echo '<script>document.getElementById("header-right-content").innerHTML = "Welcome, '.$last_name.'";
+                        echo '<script>document.getElementById("header-right-content").innerHTML = "'.$line.$last_name.'";
                         document.getElementById("header-right-nologin").id = "header-right-login";
                         document.getElementById("header-right-container-nologin").id = "header-right-container-login";
                         document.getElementById("header-right-container-compress-false").id = "header-right-container-compress-true";
